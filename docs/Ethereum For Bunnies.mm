@@ -1,0 +1,154 @@
+<map version="freeplane 1.6.0">
+<!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
+<node TEXT="Ethereum&#xa;For&#xa;Bunnies&#xa;(WIP)" FOLDED="false" ID="ID_760901285" CREATED="1533542288799" MODIFIED="1533704403600" BACKGROUND_COLOR="#ccffff" STYLE="oval">
+<font SIZE="18"/>
+<hook NAME="MapStyle">
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" backgroundImageURI="../images/TheWhiteRabbit-Tenniel-TheNursery-Alice-1890-background-bottom-right.png"/>
+
+<map_styles>
+<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
+<font SIZE="24"/>
+<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="default" ICON_SIZE="12.0 pt" COLOR="#000000" STYLE="fork">
+<font NAME="SansSerif" SIZE="10" BOLD="false" ITALIC="false"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.details"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.attributes">
+<font SIZE="9"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.note" COLOR="#000000" BACKGROUND_COLOR="#ffffff" TEXT_ALIGN="LEFT"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.floating">
+<edge STYLE="hide_edge"/>
+<cloud COLOR="#f0f0f0" SHAPE="ROUND_RECT"/>
+</stylenode>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="styles.topic" COLOR="#18898b" STYLE="fork">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.subtopic" COLOR="#cc3300" STYLE="fork">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.subsubtopic" COLOR="#669900">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.important">
+<icon BUILTIN="yes"/>
+</stylenode>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000" STYLE="oval" SHAPE_HORIZONTAL_MARGIN="10.0 pt" SHAPE_VERTICAL_MARGIN="10.0 pt">
+<font SIZE="18"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,1" COLOR="#0033ff">
+<font SIZE="16"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,2" COLOR="#00b439">
+<font SIZE="14"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,3" COLOR="#990000">
+<font SIZE="12"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,4" COLOR="#111111">
+<font SIZE="10"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,5"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,6"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,7"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,8"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,9"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,10"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,11"/>
+</stylenode>
+</stylenode>
+</map_styles>
+</hook>
+<hook NAME="AutomaticEdgeColor" COUNTER="11" RULE="ON_BRANCH_CREATION"/>
+<node TEXT="Cryptocurrency" POSITION="right" ID="ID_1402871569" CREATED="1533542366024" MODIFIED="1533705276727">
+<edge COLOR="#ff0000"/>
+<node TEXT="History" ID="ID_1235372946" CREATED="1533543401469" MODIFIED="1533543407510"/>
+<node TEXT="Bitcoin" ID="ID_979959367" CREATED="1533543408261" MODIFIED="1533543410161"/>
+<node TEXT="Blockchain, mining, incentives" ID="ID_409768183" CREATED="1533705286034" MODIFIED="1533705310591"/>
+<node TEXT="Ethereum" ID="ID_966414486" CREATED="1533704436349" MODIFIED="1533704438309"/>
+</node>
+<node TEXT="Ethereum" POSITION="right" ID="ID_1498275784" CREATED="1533542382575" MODIFIED="1533542386524">
+<edge COLOR="#0000ff"/>
+<node TEXT="History" ID="ID_466862183" CREATED="1533543421467" MODIFIED="1533543423406"/>
+<node TEXT="Launch" ID="ID_296417255" CREATED="1533543424316" MODIFIED="1533543425955"/>
+<node TEXT="Forks" ID="ID_427632430" CREATED="1533543435656" MODIFIED="1533543437134"/>
+<node TEXT="Smart Contracts" ID="ID_1822556303" CREATED="1533543445527" MODIFIED="1533543450114"/>
+<node TEXT="Ether" ID="ID_81157248" CREATED="1533543474887" MODIFIED="1533543483482"/>
+<node TEXT="Decentralisation, Scaling &amp; Security" ID="ID_1494045290" CREATED="1533705060685" MODIFIED="1533705107289"/>
+</node>
+<node TEXT="Wallets" POSITION="left" ID="ID_1625786705" CREATED="1533542427163" MODIFIED="1533706814895">
+<edge COLOR="#7c0000"/>
+<cloud COLOR="#ffff66" SHAPE="ARC"/>
+<node TEXT="geth" ID="ID_711796154" CREATED="1533695861985" MODIFIED="1533695863470"/>
+<node TEXT="Ethereum Wallet / Mist" ID="ID_949728217" CREATED="1533543509350" MODIFIED="1533543514685"/>
+<node TEXT="Parity" ID="ID_1159548536" CREATED="1533543519777" MODIFIED="1533543521691"/>
+<node TEXT="MyCrypto" ID="ID_1323503411" CREATED="1533543504887" MODIFIED="1533543507457"/>
+<node TEXT="MyEtherWallet" ID="ID_1697998982" CREATED="1533543498053" MODIFIED="1533543503438"/>
+<node TEXT="Metamask" ID="ID_1930244793" CREATED="1533543537412" MODIFIED="1533543558647"/>
+<node TEXT="Hardware" ID="ID_664483203" CREATED="1533695840302" MODIFIED="1533695847702"/>
+<node TEXT="Mobile" ID="ID_951974415" CREATED="1533695850651" MODIFIED="1533695853357"/>
+<node TEXT="Portfolios" ID="ID_453129715" CREATED="1533695869255" MODIFIED="1533695872963"/>
+<node TEXT="BIP32 HD Hierarchical Deterministic" ID="ID_1531876198" CREATED="1533705348282" MODIFIED="1533706854098"/>
+<node TEXT="BIP39 Mnemonics" ID="ID_1824538566" CREATED="1533706825269" MODIFIED="1533706831676"/>
+</node>
+<node TEXT="Transactions" POSITION="left" ID="ID_835424650" CREATED="1533542404262" MODIFIED="1533704233462">
+<edge COLOR="#00ff00"/>
+<cloud COLOR="#ffff66" SHAPE="ARC"/>
+<node TEXT="From, To, Value" ID="ID_212691762" CREATED="1533543892241" MODIFIED="1533707223948"/>
+<node TEXT="Gas" ID="ID_571353833" CREATED="1533542469831" MODIFIED="1533542471754"/>
+<node TEXT="Nonce" ID="ID_1306267228" CREATED="1533543881582" MODIFIED="1533543882961"/>
+<node TEXT="Data" ID="ID_1761041321" CREATED="1533543895699" MODIFIED="1533543897063"/>
+<node TEXT="Contract creation" ID="ID_993748261" CREATED="1533543910149" MODIFIED="1533543913610"/>
+<node TEXT="Contract function execution" ID="ID_422314729" CREATED="1533695883088" MODIFIED="1533695889566"/>
+</node>
+<node TEXT="Networks" POSITION="right" ID="ID_1277240247" CREATED="1533542432873" MODIFIED="1533542435642">
+<edge COLOR="#00007c"/>
+<node TEXT="Mainnet and testnets" ID="ID_1415615751" CREATED="1533543648105" MODIFIED="1533543651804"/>
+<node TEXT="Miners and nodes" ID="ID_1160452009" CREATED="1533704646401" MODIFIED="1533704650305"/>
+<node TEXT="Ordering of transactions" ID="ID_1193242616" CREATED="1533704660312" MODIFIED="1533704665543"/>
+</node>
+<node TEXT="Clients" POSITION="right" ID="ID_1374641476" CREATED="1533542422541" MODIFIED="1533542424940">
+<edge COLOR="#00ffff"/>
+<node TEXT="Full node, fast synced node, light node" ID="ID_1844061491" CREATED="1533543652664" MODIFIED="1533543665531"/>
+<node TEXT="Geth, Parity, others" ID="ID_435173412" CREATED="1533543674325" MODIFIED="1533543689704"/>
+</node>
+<node TEXT="Accounts" POSITION="left" ID="ID_103482688" CREATED="1533542438263" MODIFIED="1533543611828">
+<edge COLOR="#007c00"/>
+<node TEXT="Externally Owned Accounts" ID="ID_1563752705" CREATED="1533543587739" MODIFIED="1533543595197">
+<node TEXT="Public key cryptography" ID="ID_142273906" CREATED="1533543613701" MODIFIED="1533543737200"/>
+<node TEXT="Private keys and accounts" ID="ID_1720398593" CREATED="1533543744940" MODIFIED="1533543753922"/>
+<node TEXT="Hash functions" ID="ID_350134350" CREATED="1533543781096" MODIFIED="1533543783663"/>
+<node TEXT="Accounts and checksums" ID="ID_1818500233" CREATED="1533543802299" MODIFIED="1533543807911"/>
+<node TEXT="JSON/UTC file" ID="ID_70728657" CREATED="1533543831271" MODIFIED="1533543837476"/>
+<node TEXT="HD Wallets" ID="ID_889591115" CREATED="1533543838966" MODIFIED="1533543841446"/>
+<node TEXT="Hardware wallets" ID="ID_116620591" CREATED="1533543845213" MODIFIED="1533543849020"/>
+<node TEXT="Signing" ID="ID_710537582" CREATED="1533543930588" MODIFIED="1533543932512"/>
+</node>
+<node TEXT="Contract Accounts" ID="ID_89771427" CREATED="1533543596375" MODIFIED="1533543599917">
+<node TEXT="Smart contracts" ID="ID_1831592105" CREATED="1533543944054" MODIFIED="1533543947647"/>
+<node TEXT="Multisig" ID="ID_438731871" CREATED="1533543949068" MODIFIED="1533543951217"/>
+</node>
+</node>
+<node TEXT="Tokens" POSITION="right" ID="ID_45645357" CREATED="1533542449738" MODIFIED="1533542451605">
+<edge COLOR="#7c007c"/>
+<node TEXT="ERC20 Fungible" ID="ID_1674184085" CREATED="1533542455178" MODIFIED="1533705216830"/>
+<node TEXT="ERC871 Non-Fungible" ID="ID_1757262238" CREATED="1533542458201" MODIFIED="1533705233725"/>
+</node>
+<node TEXT="Web3" POSITION="left" ID="ID_650070191" CREATED="1533542483455" MODIFIED="1533542485057">
+<edge COLOR="#007c7c"/>
+<node TEXT="Dapps" ID="ID_1447507993" CREATED="1533544072039" MODIFIED="1533544074619"/>
+</node>
+<node TEXT="Smart Contracts" POSITION="right" ID="ID_1372438674" CREATED="1533542416234" MODIFIED="1533542419154">
+<edge COLOR="#ff00ff"/>
+<node TEXT="Solidity" ID="ID_1927608165" CREATED="1533543989094" MODIFIED="1533543991511"/>
+<node TEXT="Virtual Machine" ID="ID_1871244927" CREATED="1533704460488" MODIFIED="1533704468103"/>
+<node TEXT="ABI" ID="ID_1084535211" CREATED="1533543999757" MODIFIED="1533544000998"/>
+<node TEXT="Programming" ID="ID_798172087" CREATED="1533544006903" MODIFIED="1533544011460"/>
+<node TEXT="Other Languages" ID="ID_1605629319" CREATED="1533704454630" MODIFIED="1533704457793"/>
+</node>
+</node>
+</map>
