@@ -1,6 +1,8 @@
 # Ethereum For Bunnies
 
-<kbd><img src="images/The_White_Rabbit_(Tenniel)_-_The_Nursery_Alice_(1890)_-_BL-50%25.jpg" /></kbd>
+Status: Work in progress
+
+<kbd><img src="images/TheWhiteRabbit-Tenniel-TheNursery-Alice-1890-ETH.png" /></kbd>
 
 <br />
 
@@ -10,7 +12,7 @@
 
 <hr />
 
-<kbd><img src="docs/Ethereum%20For%20Bunnies.jpg" /></kbd>
+<kbd><img src="docs/Ethereum%20For%20Bunnies.png" /></kbd>
 
 <br />
 
@@ -18,11 +20,12 @@
 
 ## Table Of Contents
 
-* [Cryptocurrency, Blockchains And Ethereum]()
+* Exercises
+  * [Generating Ethereum Addresses](exercises/GeneratingEthereumAddresses.md)
 
 
 <br />
 
 <br />
 
-(c) BokkyPooBah / Bok Consulting Pty Ltd - Aug 4 2018. The MIT Licence.
+(c) BokkyPooBah / Bok Consulting Pty Ltd - Aug 10 2018. Free for personal use. Please contact BokkyPooBah for commercial use.
