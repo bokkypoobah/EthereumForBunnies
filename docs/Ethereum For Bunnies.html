@@ -1,0 +1,693 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Ethereum For Bunnies</title>
+<style type="text/css">
+    body {color: #000000; font-size: 10pt; font-family: "SansSerif", sans-serif; }
+li { list-style: none;  margin: 0; }
+p { margin: 0; }
+
+span.l { color: red; font-weight: bold; }
+
+a.mapnode:link,
+a.mapnode:visited,
+a.mapnode:active,
+a.mapnode:hover {
+    text-decoration: none; color: black;
+}
+a.mapnode:hover { background: #eeeee0; }
+span.foldopened, span.foldclosed  {
+    font-size: xx-small;
+    border-width: 1;
+    font-family: monospace;
+    padding: 0em 0.25em 0em 0.25em;
+    background: #e0e0e0;
+    cursor:pointer;
+}
+span.foldopened  {
+    color: white;
+    VISIBILITY: visible;
+}
+span.foldclosed {
+    color: #666666;
+    VISIBILITY: hidden;
+}
+span.foldspecial {
+    color: #666666;
+    font-size: xx-small;
+    border-style: none solid solid none;
+    border-color: #CCCCCC;
+    border-width: 1;
+    font-family: sans-serif;
+    padding: 0em 0.1em 0em 0.1em;
+    background: #e0e0e0;
+    cursor:pointer;
+}
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body bgcolor=#ffffcc>
+<script type="text/javascript">
+// Here we implement folding. It works fine with MSIE5.5, MSIE6.0 and
+// Mozilla 0.9.6.
+
+if (document.layers) {
+    //Netscape 4 specific code
+    pre = 'document.';
+    post = ''; }
+if (document.getElementById) {
+    //Netscape 6 specific code
+    pre = 'document.getElementById("';
+    post = '").style'; }
+if (document.all) {
+    //IE4+ specific code
+    pre = 'document.all.';
+    post = '.style'; }
+
+function layer_exists(layer) {
+    try {
+	eval(pre + layer + post);
+	return true; }
+    catch (error) {
+	return false; }}
+
+function show_layer(layer) {
+    eval(pre + layer + post).position = 'relative'; 
+    eval(pre + layer + post).visibility = 'visible'; }
+
+function hide_layer(layer) {
+    eval(pre + layer + post).visibility = 'hidden';
+    eval(pre + layer + post).position = 'absolute'; }
+
+function hide_folder(folder) {
+    hide_folding_layer(folder)
+    show_layer('show'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function show_folder(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+	show_layer('show'+folder+'_'+i); }
+}
+function show_folder_completely(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+	show_folder_completely(folder+'_'+i); }
+}
+
+
+
+function hide_folding_layer(folder) {
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+	hide_folding_layer(folder+'_'+i); }
+
+    hide_layer('hide'+folder);
+    hide_layer('show'+folder);
+    hide_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function fold_document() {
+    var i;
+    var folder = '1';
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+	hide_folder(folder+'_'+i); }
+}
+
+function unfold_document() {
+    var i;
+    var folder = '1';
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+	show_folder_completely(folder+'_'+i); }
+}
+
+</script>
+<SPAN class="foldspecial" onclick="unfold_document()">All +</SPAN>
+<SPAN class="foldspecial" onclick="fold_document()">All -</SPAN>
+<p><span style="font-size: 18pt; ">Ethereum&#10;For&#10;Bunnies</span>
+<ul>
+<li>Solidity &&#10;Smart Contracts
+<ul>
+<li>Programming
+<ul>
+<li>Contracts
+<ul>
+<li>Inheritance
+<ul>
+<li>Interfaces</li>
+</ul>
+</li>
+<li>Function Overloading</li>
+<li>msg.sender & Inter-contract Calls</li>
+</ul>
+</li>
+<li>Data Types
+<ul>
+<li>Boolean</li>
+<li><span id="show1_1" class="foldclosed" onClick="show_folder('1_1')" style="POSITION: absolute">+</span> <span id="hide1_1" class="foldopened" onClick="hide_folder('1_1')">-</span>
+Integer
+<ul id="fold1_1" style="POSITION: relative; VISIBILITY: visible;">
+<li>Unsigned</li>
+<li>Signed</li>
+<li>Sizes</li>
+</ul>
+</li>
+<li>address</li>
+<li>byte(s)</li>
+<li>string</li>
+<li>Alignment and optimisation</li>
+</ul>
+</li>
+<li>Data Structures
+<ul>
+<li>struct</li>
+<li>Array[]</li>
+<li>mapping(x => y)</li>
+</ul>
+</li>
+<li><span id="show1_2" class="foldclosed" onClick="show_folder('1_2')" style="POSITION: absolute">+</span> <span id="hide1_2" class="foldopened" onClick="hide_folder('1_2')">-</span>
+<a href="https://solidity.readthedocs.io/en/latest/units-and-global-variables.html#special-variables-and-functions" target="_blank">Special Variables & Functions</a>
+
+<ul id="fold1_2" style="POSITION: relative; VISIBILITY: visible;">
+<li>msg.*
+<ul>
+<li>msg.sender</li>
+<li>msg.value</li>
+<li>msg.data</li>
+</ul>
+</li>
+<li>now = block.timestamp</li>
+</ul>
+</li>
+<li><a href="https://solidity.readthedocs.io/en/latest/units-and-global-variables.html#ether-units" target="_blank">Units</a>
+
+<ul>
+<li>Time</li>
+<li>Ethers</li>
+</ul>
+</li>
+<li>Events
+<ul>
+<li>Event Overloading</li>
+</ul>
+</li>
+<li>Functions
+<ul>
+<li>Write</li>
+<li>Read Only
+<ul>
+<li>View</li>
+<li>Pure</li>
+</ul>
+</li>
+<li>Visibility</li>
+</ul>
+</li>
+<li><a href="https://solidity.readthedocs.io/en/latest/control-structures.html#error-handling-assert-require-revert-and-exceptions" target="_blank">Errors</a>
+
+<ul>
+<li>Assert</li>
+<li>Require</li>
+<li>Revert</li>
+</ul>
+</li>
+<li><a href="https://solidity.readthedocs.io/en/latest/style-guide.html" target="_blank">Smell</a>
+</li>
+<li>Limitations
+<ul>
+<li>Stack Too Deep</li>
+<li>Variable Shadowing</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span id="show1_3" class="foldclosed" onClick="show_folder('1_3')" style="POSITION: absolute">+</span> <span id="hide1_3" class="foldopened" onClick="hide_folder('1_3')">-</span>
+Compiling
+<ul id="fold1_3" style="POSITION: relative; VISIBILITY: visible;">
+<li><span id="show1_3_1" class="foldclosed" onClick="show_folder('1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_3_1" class="foldopened" onClick="hide_folder('1_3_1')">-</span>
+<a href="http://remix.ethereum.org" target="_blank">Remix</a>
+
+<ul id="fold1_3_1" style="POSITION: relative; VISIBILITY: visible;">
+<li>Compiling</li>
+<li>Deploying</li>
+<li>Running</li>
+<li>Debugging</li>
+</ul>
+</li>
+<li><a href="https://solidity.readthedocs.io/en/latest/installing-solidity.html" target="_blank">Solc</a>
+</li>
+</ul>
+</li>
+<li><span id="show1_4" class="foldclosed" onClick="show_folder('1_4')" style="POSITION: absolute">+</span> <span id="hide1_4" class="foldopened" onClick="hide_folder('1_4')">-</span>
+Testing
+<ul id="fold1_4" style="POSITION: relative; VISIBILITY: visible;">
+<li>Truffles</li>
+<li>Custom JavaScript</li>
+</ul>
+</li>
+<li><span id="show1_5" class="foldclosed" onClick="show_folder('1_5')" style="POSITION: absolute">+</span> <span id="hide1_5" class="foldopened" onClick="hide_folder('1_5')">-</span>
+Deployment
+<ul id="fold1_5" style="POSITION: relative; VISIBILITY: visible;">
+<li>Constructor</li>
+<li>Body</li>
+<li>Source Code Validation
+<ul>
+<li>Libraries</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span id="show1_6" class="foldclosed" onClick="show_folder('1_6')" style="POSITION: absolute">+</span> <span id="hide1_6" class="foldopened" onClick="hide_folder('1_6')">-</span>
+Execution
+<ul id="fold1_6" style="POSITION: relative; VISIBILITY: visible;">
+<li>Transaction</li>
+<li>Read</li>
+</ul>
+</li>
+<li>Debugging
+<ul>
+<li>Events</li>
+</ul>
+</li>
+<li><span id="show1_7" class="foldclosed" onClick="show_folder('1_7')" style="POSITION: absolute">+</span> <span id="hide1_7" class="foldopened" onClick="hide_folder('1_7')">-</span>
+Security
+<ul id="fold1_7" style="POSITION: relative; VISIBILITY: visible;">
+<li><a href="https://consensys.github.io/smart-contract-best-practices/recommendations/" target="_blank">Best Practices</a>
+</li>
+<li>Audits</li>
+</ul>
+</li>
+<li><span id="show1_8" class="foldclosed" onClick="show_folder('1_8')" style="POSITION: absolute">+</span> <span id="hide1_8" class="foldopened" onClick="hide_folder('1_8')">-</span>
+Libraries
+<ul id="fold1_8" style="POSITION: relative; VISIBILITY: visible;">
+<li>OpenZeppelin</li>
+<li>dappsys</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span id="show1_9" class="foldclosed" onClick="show_folder('1_9')" style="POSITION: absolute">+</span> <span id="hide1_9" class="foldopened" onClick="hide_folder('1_9')">-</span>
+Resources
+<ul id="fold1_9" style="POSITION: relative; VISIBILITY: visible;">
+<li><a href="https://ethereum.org/" target="_blank">Foundation</a>
+
+<ul>
+<li><a href="https://github.com/ethereum/wiki/wiki/White-Paper" target="_blank">White Paper</a>
+</li>
+<li><a href="https://ethereum.github.io/yellowpaper/paper.pdf" target="_blank">Yellow Paper</a>
+</li>
+<li><a href="https://github.com/ethereum/wiki/wiki" target="_blank">Wiki</a>
+</li>
+</ul>
+</li>
+<li><span id="show1_9_1" class="foldclosed" onClick="show_folder('1_9_1')" style="POSITION: absolute">+</span> <span id="hide1_9_1" class="foldopened" onClick="hide_folder('1_9_1')">-</span>
+Reddit
+<ul id="fold1_9_1" style="POSITION: relative; VISIBILITY: visible;">
+<li><a href="https://www.reddit.com/r/ethereum/new/" target="_blank">Ethereum</a>
+</li>
+<li><a href="https://www.reddit.com/r/ethdev/new/" target="_blank">EthDev</a>
+</li>
+<li><a href="https://www.reddit.com/r/ethtrader/new/" target="_blank">EthTrader</a>
+</li>
+</ul>
+</li>
+<li>Github
+<ul>
+<li><a href="https://github.com/ethereum/" target="_blank">Ethereum</a>
+</li>
+<li><a href="https://github.com/paritytech/" target="_blank">Parity</a>
+</li>
+</ul>
+</li>
+<li>Docs
+<ul>
+<li><a href="https://solidity.readthedocs.io/en/latest/" target="_blank">Solidity</a>
+</li>
+<li><a href="https://github.com/ethereum/wiki/wiki/JavaScript-API" target="_blank">JavaScript API</a>
+</li>
+<li><a href="https://github.com/ethereum/wiki/wiki/JSON-RPC" target="_blank">JSON-RPC API</a>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/bokkypoobah/MasteringEthereum#contents" target="_blank">Mastering Ethereum</a>
+</li>
+<li><a href="https://ethereum.stackexchange.com/" target="_blank">Ethereum StackExchange</a>
+</li>
+<li><span id="show1_9_2" class="foldclosed" onClick="show_folder('1_9_2')" style="POSITION: absolute">+</span> <span id="hide1_9_2" class="foldopened" onClick="hide_folder('1_9_2')">-</span>
+Blockchain Explorer
+<ul id="fold1_9_2" style="POSITION: relative; VISIBILITY: visible;">
+<li><a href="https://etherscan.io/" target="_blank">Etherscan</a>
+</li>
+<li><a href="https://ethplorer.io/" target="_blank">EthPlorer</a>
+</li>
+<li><a href="https://www.etherchain.org/" target="_blank">Etherchain</a>
+</li>
+</ul>
+</li>
+<li>Clients
+<ul>
+<li><a href="https://github.com/ethereum/go-ethereum/releases" target="_blank">geth</a>
+
+<ul>
+<li><a href="https://github.com/ethereum/mist/releases" target="_blank">Ethereum Wallet / Mist</a>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/paritytech/parity-ethereum/releases" target="_blank">Parity</a>
+
+<ul>
+<li><a href="https://github.com/parity-js/shell/releases" target="_blank">Parity UI</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Wallets
+<ul>
+<li>Hardware
+<ul>
+<li><a href="https://www.ledger.com/products/ledger-nano-s" target="_blank">Ledger Nano S</a>
+</li>
+<li><a href="https://shop.trezor.io/" target="_blank">Trezor</a>
+</li>
+<li><a href="https://www.keepkey.com/" target="_blank">Keepkey</a>
+</li>
+<li><a href="https://www.archos.com/fr/products/crypto/archos_safetmini/index.html" target="_blank">Safe-T</a>
+</li>
+</ul>
+</li>
+<li>Mobile
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=com.kryptokit.jaxx" target="_blank">Jaxx</a>
+</li>
+<li><a href="https://github.com/paritytech/parity-signer" target="_blank">Parity Signer</a>
+</li>
+<li><a href="https://trustwalletapp.com/" target="_blank">Trustwallet</a>
+</li>
+</ul>
+</li>
+<li>Web
+<ul>
+<li><a href="https://mycrypto.com/" target="_blank">MyCrypto</a>
+</li>
+<li><a href="https://www.myetherwallet.com/" target="_blank">MyEtherWallet</a>
+</li>
+<li><a href="https://metamask.io/" target="_blank">Metamask</a>
+</li>
+<li><a href="https://www.exodus.io/" target="_blank">Exodus</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://ethgasstation.info/" target="_blank">Gas</a>
+</li>
+</ul>
+</li>
+<li><span id="show1_10" class="foldclosed" onClick="show_folder('1_10')" style="POSITION: absolute">+</span> <span id="hide1_10" class="foldopened" onClick="hide_folder('1_10')">-</span>
+Cryptocurrency
+<ul id="fold1_10" style="POSITION: relative; VISIBILITY: visible;">
+<li>History</li>
+<li>Bitcoin</li>
+<li>Blockchain, mining, incentives</li>
+<li>Ethereum</li>
+<li><span id="show1_10_1" class="foldclosed" onClick="show_folder('1_10_1')" style="POSITION: absolute">+</span> <span id="hide1_10_1" class="foldopened" onClick="hide_folder('1_10_1')">-</span>
+Consensus Algorithm
+<ul id="fold1_10_1" style="POSITION: relative; VISIBILITY: visible;">
+<li>Proof of Work</li>
+<li>Proof of Stake</li>
+<li>Delegated Proof of Stake</li>
+<li>Proof of Authority</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span id="show1_11" class="foldclosed" onClick="show_folder('1_11')" style="POSITION: absolute">+</span> <span id="hide1_11" class="foldopened" onClick="hide_folder('1_11')">-</span>
+Ethereum
+<ul id="fold1_11" style="POSITION: relative; VISIBILITY: visible;">
+<li>History</li>
+<li>Launch</li>
+<li>Forks</li>
+<li>Smart Contracts</li>
+<li>Ether</li>
+<li>Decentralisation, Scaling & Security</li>
+</ul>
+</li>
+<li><span id="show1_12" class="foldclosed" onClick="show_folder('1_12')" style="POSITION: absolute">+</span> <span id="hide1_12" class="foldopened" onClick="hide_folder('1_12')">-</span>
+Networks
+<ul id="fold1_12" style="POSITION: relative; VISIBILITY: visible;">
+<li>Mainnet and testnets</li>
+<li>Miners and nodes</li>
+<li>Ordering of transactions</li>
+</ul>
+</li>
+<li><a href="https://hackernoon.com/getting-deep-into-evm-how-ethereum-works-backstage-ac7efa1f0015" target="_blank">Virtual Machine</a>
+
+<ul>
+<li><a href="https://ethervm.io/" target="_blank">Assembly</a>
+</li>
+<li><a href="https://ethervm.io/" target="_blank">Bytecode</a>
+</li>
+<li>Execution
+<ul>
+<li>Deterministic</li>
+</ul>
+</li>
+<li>Stack</li>
+<li>Memory</li>
+<li><a href="https://ethereum.stackexchange.com/a/10242/1268" target="_blank">Contract Account</a>
+
+<ul>
+<li><a href="https://github.com/bokkypoobah/EthereumAlarmClockAudit/blob/master/audit/code-review/CloneFactory.md" target="_blank">Code</a>
+</li>
+<li><a href="https://medium.com/aigang-network/how-to-read-ethereum-contract-storage-44252c8af925" target="_blank">Storage</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/bokkypoobah/EthereumForBunnies" target="_blank">Ethereum For Bunnies&#10;(c) BokkyPooBah</a>
+</li>
+<li>Application Binary Interface
+<ul>
+<li><a href="https://solidity.readthedocs.io/en/latest/abi-spec.html" target="_blank">Specification</a>
+</li>
+<li><a href="https://www.4byte.directory/" target="_blank">Function Signature</a>
+</li>
+<li><a href="https://github.com/ethereum-lists/4bytes/tree/master/signatures" target="_blank">Function Lookup</a>
+</li>
+<li><a href="https://github.com/paritytech/ethabi" target="_blank">Arguments</a>
+</li>
+<li><a href="https://github.com/paritytech/ethabi" target="_blank">ethabi</a>
+</li>
+<li>Example
+<ul>
+<li><a href="https://ethereum.stackexchange.com/a/10863/1268" target="_blank">Multiple Parameters</a>
+</li>
+<li><a href="https://ethereum.stackexchange.com/a/11190/1268" target="_blank">Array of Addresses</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span id="show1_13" class="foldclosed" onClick="show_folder('1_13')" style="POSITION: absolute">+</span> <span id="hide1_13" class="foldopened" onClick="hide_folder('1_13')">-</span>
+Clients
+<ul id="fold1_13" style="POSITION: relative; VISIBILITY: visible;">
+<li>Full node, fast synced node, light node</li>
+<li>Geth, Parity, others</li>
+</ul>
+</li>
+<li><span id="show1_14" class="foldclosed" onClick="show_folder('1_14')" style="POSITION: absolute">+</span> <span id="hide1_14" class="foldopened" onClick="hide_folder('1_14')">-</span>
+Tokens
+<ul id="fold1_14" style="POSITION: relative; VISIBILITY: visible;">
+<li>ERC20 Fungible</li>
+<li>ERC871 Non-Fungible</li>
+</ul>
+</li>
+<li><span id="show1_15" class="foldclosed" onClick="show_folder('1_15')" style="POSITION: absolute">+</span> <span id="hide1_15" class="foldopened" onClick="hide_folder('1_15')">-</span>
+Transactions
+<ul id="fold1_15" style="POSITION: relative; VISIBILITY: visible;">
+<li><span id="show1_15_1" class="foldclosed" onClick="show_folder('1_15_1')" style="POSITION: absolute">+</span> <span id="hide1_15_1" class="foldopened" onClick="hide_folder('1_15_1')">-</span>
+Prods the Ethereum World Computer
+<ul id="fold1_15_1" style="POSITION: relative; VISIBILITY: visible;">
+<li>Initiated from Externally Owned Accounts</li>
+</ul>
+</li>
+<li><span id="show1_15_2" class="foldclosed" onClick="show_folder('1_15_2')" style="POSITION: absolute">+</span> <span id="hide1_15_2" class="foldopened" onClick="hide_folder('1_15_2')">-</span>
+Tx Data
+<ul id="fold1_15_2" style="POSITION: relative; VISIBILITY: visible;">
+<li>From, To, Value</li>
+<li><span id="show1_15_2_1" class="foldclosed" onClick="show_folder('1_15_2_1')" style="POSITION: absolute">+</span> <span id="hide1_15_2_1" class="foldopened" onClick="hide_folder('1_15_2_1')">-</span>
+Gas
+<ul id="fold1_15_2_1" style="POSITION: relative; VISIBILITY: visible;">
+<li>Gas Estimate</li>
+<li>Gas Price</li>
+<li>Gas Used</li>
+<li>Tx fee</li>
+</ul>
+</li>
+<li><span id="show1_15_2_2" class="foldclosed" onClick="show_folder('1_15_2_2')" style="POSITION: absolute">+</span> <span id="hide1_15_2_2" class="foldopened" onClick="hide_folder('1_15_2_2')">-</span>
+Nonce
+<ul id="fold1_15_2_2" style="POSITION: relative; VISIBILITY: visible;">
+<li>Reprice transaction fee</li>
+</ul>
+</li>
+<li>Data</li>
+</ul>
+</li>
+<li>Contract creation</li>
+<li>Contract function execution</li>
+</ul>
+</li>
+<li><span id="show1_16" class="foldclosed" onClick="show_folder('1_16')" style="POSITION: absolute">+</span> <span id="hide1_16" class="foldopened" onClick="hide_folder('1_16')">-</span>
+Wallets
+<ul id="fold1_16" style="POSITION: relative; VISIBILITY: visible;">
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank">BIP32 Hierarchical Deterministic</a>
+</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank">BIP39 Mnemonics</a>
+</li>
+</ul>
+</li>
+<li><span id="show1_17" class="foldclosed" onClick="show_folder('1_17')" style="POSITION: absolute">+</span> <span id="hide1_17" class="foldopened" onClick="hide_folder('1_17')">-</span>
+Accounts
+<ul id="fold1_17" style="POSITION: relative; VISIBILITY: visible;">
+<li><a href="https://github.com/bokkypoobah/EthereumForBunnies/blob/master/exercises/GeneratingEthereumAddresses.md" target="_blank">Externally Owned Accounts</a>
+
+<ul>
+<li><a href="https://hackernoon.com/what-is-the-math-behind-elliptic-curve-cryptography-f61b25253da3" target="_blank">Public key cryptography</a>
+</li>
+<li><a href="https://www.youtube.com/watch?v=S9JGmA5_unY" target="_blank">Private keys and accounts</a>
+</li>
+<li><a href="https://ethereum.stackexchange.com/a/554/1268" target="_blank">Hash functions</a>
+</li>
+<li><a href="https://ethereum.stackexchange.com/a/3619/1268" target="_blank">Accounts and checksums</a>
+</li>
+<li><a href="https://theethereum.wiki/w/index.php/Accounts,_Addresses,_Public_And_Private_Keys,_And_Tokens#UTC_JSON_Keystore_File" target="_blank">JSON/UTC file</a>
+</li>
+<li><a href="https://www.bokconsulting.com.au/blog/using-the-ledger-nano-s-with-myetherwallet-go-ethereum-and-parity-without-chrome/#mnemonicpass" target="_blank">HD Wallets</a>
+</li>
+<li><a href="https://www.bokconsulting.com.au/blog/using-the-ledger-nano-s-with-myetherwallet-go-ethereum-and-parity-without-chrome/" target="_blank">Hardware wallets</a>
+</li>
+<li><a href="https://github.com/bokkypoobah/BokkyPooBahsTokenTeleportationServiceSmartContract#how-it-works" target="_blank">Signing</a>
+</li>
+</ul>
+</li>
+<li><span id="show1_17_1" class="foldclosed" onClick="show_folder('1_17_1')" style="POSITION: absolute">+</span> <span id="hide1_17_1" class="foldopened" onClick="hide_folder('1_17_1')">-</span>
+<a href="https://ethereum.stackexchange.com/a/10242/1268" target="_blank">Contract Accounts</a>
+
+<ul id="fold1_17_1" style="POSITION: relative; VISIBILITY: visible;">
+<li>Smart contracts</li>
+<li>Multisig</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span id="show1_18" class="foldclosed" onClick="show_folder('1_18')" style="POSITION: absolute">+</span> <span id="hide1_18" class="foldopened" onClick="hide_folder('1_18')">-</span>
+Use cases
+<ul id="fold1_18" style="POSITION: relative; VISIBILITY: visible;">
+<li>Insurance</li>
+<li>Exchanges
+<ul>
+<li><a href="https://etherdelta.com/" target="_blank">EtherDelta</a>
+
+<ul>
+<li><a href="https://forkdelta.app" target="_blank">ForkDelta</a>
+</li>
+<li><a href="https://gammadex.com/" target="_blank">GammaDEX</a>
+</li>
+</ul>
+</li>
+<li><a href="https://idex.market/" target="_blank">IDEX</a>
+</li>
+<li><a href="https://0xproject.com/" target="_blank">0x</a>
+
+<ul>
+<li><a href="https://paradex.io/" target="_blank">Paradex</a>
+</li>
+<li><a href="https://radarrelay.com/" target="_blank">Radar Relay</a>
+</li>
+<li><a href="https://theocean.trade/" target="_blank">The Ocean</a>
+</li>
+</ul>
+</li>
+<li><a href="https://kyber.network/" target="_blank">Kyber</a>
+</li>
+<li><a href="https://cryptoderivatives.market/" target="_blank">CDM</a>
+</li>
+<li><a href="https://github.com/bokkypoobah/OAXSwimGatewayStableCoinContractAudit/tree/master/audit" target="_blank">OAX</a>
+</li>
+</ul>
+</li>
+<li>Charity</li>
+<li>Voting</li>
+<li><a href="https://devery.io/" target="_blank">Provenance</a>
+</li>
+<li><a href="https://www.bokconsulting.com.au/blog/the-dao-1-0-the-bug-and-the-hack-the-refunds-plus-the-source-code-and-abi/" target="_blank">Decentralised Autonomous Organisations</a>
+</li>
+<li>Stablecoin
+<ul>
+<li><a href="https://github.com/bokkypoobah/MakerDAOSaiContractAudit/tree/master/audit" target="_blank">MakerDAO</a>
+</li>
+<li><a href="https://digix.global/" target="_blank">Digix</a>
+</li>
+</ul>
+</li>
+<li>Decentralised Put & Call Options</li>
+</ul>
+</li>
+<li><span id="show1_19" class="foldclosed" onClick="show_folder('1_19')" style="POSITION: absolute">+</span> <span id="hide1_19" class="foldopened" onClick="hide_folder('1_19')">-</span>
+Web3
+<ul id="fold1_19" style="POSITION: relative; VISIBILITY: visible;">
+<li>Dapps</li>
+</ul>
+</li>
+<li>Reading And Writing</li>
+<li><span id="show1_20" class="foldclosed" onClick="show_folder('1_20')" style="POSITION: absolute">+</span> <span id="hide1_20" class="foldopened" onClick="hide_folder('1_20')">-</span>
+<a href="https://hackernoon.com/10-state-channel-projects-every-blockchain-developer-should-know-about-293514a516fd" target="_blank">Scaling</a>
+
+<ul id="fold1_20" style="POSITION: relative; VISIBILITY: visible;">
+<li>Payment Channels
+<ul>
+<li><a href="https://raiden.network/micro.html" target="_blank">microRaiden</a>
+</li>
+<li><a href="https://raiden.network/" target="_blank">Raiden</a>
+</li>
+</ul>
+</li>
+<li>State Channels
+<ul>
+<li><a href="https://counterfactual.com/" target="_blank">Counterfactual</a>
+</li>
+</ul>
+</li>
+<li>Plasma</li>
+<li>Shasper McShardface</li>
+</ul>
+</li>
+</ul>
+<SCRIPT type="text/javascript">
+fold_document();
+</SCRIPT>
+</body>
+</html>

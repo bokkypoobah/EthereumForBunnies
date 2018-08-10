@@ -2,7 +2,7 @@
 
 Status: Work in progress
 
-<kbd><img src="images/TheWhiteRabbit-Tenniel-TheNursery-Alice-1890-ETH.png" /></kbd>
+<kbd><img src="docs/Ethereum%20For%20Bunnies.png" /></kbd>
 
 <br />
 
@@ -10,9 +10,7 @@ Status: Work in progress
 
 <br />
 
-<hr />
-
-<kbd><img src="docs/Ethereum%20For%20Bunnies.png" /></kbd>
+You can use [Freeplane](https://www.freeplane.org/wiki/index.php/Home) to download, view and edit [docs/Ethereum For Bunnies.mm](docs/Ethereum%20For%20Bunnies.mm). Or view [docs/Ethereum For Bunnies.html](https://bokkypoobah.github.io/EthereumForBunnies/docs/Ethereum%20For%20Bunnies.html)
 
 <br />
 

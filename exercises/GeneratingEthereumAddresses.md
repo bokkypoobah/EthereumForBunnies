@@ -38,7 +38,7 @@ We will choose the last private key from the first page of [Ethereum Private Key
 
 From [How to convert an ECDSA key to PEM format], we want to add the prefix `302e0201010420` before the private key and add the postfix `a00706052b8104000a` after the private key. Our hex string is now `302e0201010420000000000000000000000000000000000000000000000000000000000000001fa00706052b8104000a`.
 
-On OS/X with *openssl* installed, run the following command. See [Command Line Elliptic Curve Operations] for further information on *openssl*. The `xxd` command converts the hex string into binary form to be fed into *openssl* [DER](https://wiki.openssl.org/index.php/DER) format.
+On OS/X with *openssl* installed, run the following command. See [Command Line Elliptic Curve Operations] for further information on *openssl*. The Unix [xxd](https://www.systutorials.com/docs/linux/man/1-xxd/) command converts the hex string into binary form to be piped into *openssl* [DER](https://wiki.openssl.org/index.php/DER) format.
 
 ```bash
 $ echo "302e0201010420000000000000000000000000000000000000000000000000000000000000001fa00706052b8104000a" | xxd -r -p - | openssl ec -inform der -noout -text
@@ -54,7 +54,7 @@ pub:
 ASN1 OID: secp256k1
 ```
 
-We need to remove the `04` prefix and remove the colons from the *pub* key above to generate the public key `6a245bf6dc698504c89a20cfded60853152b695336c28063b61c65cbd269e6b4e022cf42c2bd4a708b3f5126f16a24ad8b33ba48d0423b6efd5e6348100d8a82`.
+The `04` prefix and colons need to be removed from the *pub* key above to form the public key `6a245bf6dc698504c89a20cfded60853152b695336c28063b61c65cbd269e6b4e022cf42c2bd4a708b3f5126f16a24ad8b33ba48d0423b6efd5e6348100d8a82`.
 
 Using the `geth console` JavaScript command, we calculate the [Keccak]-256 hash of the public key. See [Which cryptographic hash function does Ethereum use?] for more details on keccak-256.
 
@@ -73,6 +73,31 @@ We need to take the last 20 bytes (40 hex characters) of the keccak-256 hash to 
 ```
 
 The generated Ethereum public key is `6b09d6433a379752157fd1a9e537c5cae5fa3168`. Compare this to the public key from the [Ethereum Private Key Database] of `0x6b09D6433a379752157fD1a9E537c5CAe5fa3168` and note that some of the alphabetic hexadecimal characters are uppercase. [EIP-55 Mixed-case checksum address encoding] describes the mix-case checksum algorithm.
+
+And we can import the private key into `geth` to verify that the same Ethereum address is generated (output of UTC file formatted manually):
+
+```bash
+$ geth --datadir=./test account import privatekey
+INFO [08-10|11:50:46.823] Maximum peer count                       ETH=25 LES=0 total=25
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Passphrase: 
+Repeat passphrase: 
+Address: {6b09d6433a379752157fd1a9e537c5cae5fa3168}
+
+$ cat test/keystore/UTC--2018-08-10T01-50-54.295127015Z--6b09d6433a379752157fd1a9e537c5cae5fa3168 
+{"address":"6b09d6433a379752157fd1a9e537c5cae5fa3168",
+ "crypto":{
+   "cipher":"aes-128-ctr",
+   "ciphertext":"32f8fb0d41a523578d31d8b781412e384c61040a83be433aad98941dc03ba3ed",
+   "cipherparams":{"iv":"c0fb6c2a2e827bbfec23bf19935df29f"},
+   "kdf":"scrypt",
+   "kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"8d4bc34a27574b8e208031e50f2c5ad6c7a9b0a3984ec4d11c7d2adf26a84f84"},
+   "mac":"75cc9c39b83d2ea1a0427064c6d87eb581d2383d6698c56a6309513998f2c039"
+ },
+ "id":"a9f76d2e-782b-4b28-a6dc-35ecde06e1d7",
+ "version":3
+}
+```
 
 <br />
 
